@@ -1,0 +1,130 @@
+import React, { Component } from 'react';
+import Widget from './components/Widget.js';
+import logo from './Logo.png'
+import './App.css'
+
+//examples of how to import our logo and css files etc..
+//import logo from './logo.svg';
+//import './App.css';
+
+class App extends Component {
+    
+    addWidget(){
+        console.log('HelloTest',this);
+    }
+
+    render() {
+        return (
+            <div>
+                <div className="container-fluid h-100">
+                    <div className="row h-100">
+
+                        {/* Side Menu */}
+                        <div className="col-2 col-md-2 collapse m-0 p-0 h-100 bg-dark" id="collapsePushMenu">
+                            <ul className="nav menu-side flex-column navbar-dark sticky-top">
+                                <li className="nav-item">
+                                    <a className="nav-link active" href="#">Course 1</a>
+                                </li>
+                                <li className="nav-item">
+                                    <a className="nav-link" href="#">Course 2</a>
+                                </li>
+                                <li className="nav-item">
+                                    <a className="nav-link" href="#">Course 3</a>
+                                </li>
+                                <li className="nav-item">
+                                    <a className="nav-link disabled" href="#">Disabled</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        {/* Main Page Content */}
+                        <div className="col topNavContainer">
+                            <div className="row">
+
+                                {/* Top Nav */}
+                                <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+                                    <button className="btn sticky-top" data-toggle="collapse" href="#collapsePushMenu"
+                                            role="button">Menu
+                                    </button>
+                                    <a className="navbar-brand" href="#"><img id="Logo" src={logo}/></a>
+                                </nav>
+
+
+                                {/* Button trigger modal */}
+                                <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                                    Add New Course
+                                </button>
+
+                                <Widget/>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                {/* Modal */}
+                <div className="modal fade" id="exampleModalCenter" tabIndex="-1" role="dialog" aria-labelledby="AddWebsite" aria-hidden="true">
+                    <div className="modal-dialog modal-dialog-centered" role="document">
+                        <div className="modal-content">
+                            <div className="modal-header">
+                                <h5 className="modal-title" id="exampleModalLongTitle">Add New Website:</h5>
+                                <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div className="modal-body">
+
+                                <form>
+                                    <div className="form-group">
+                                        <label htmlFor="exampleFormControlSelect1">Website Type: </label>
+                                        <select className="form-control" id="exampleFormControlSelect1">
+                                            <option>GradeSource</option>
+                                            <option>Piazza</option>
+                                            <option>GradeScope</option>
+                                            <option>AutoGrader</option>
+                                            <option>Class Website</option>
+                                            <option>Other</option>
+                                        </select>
+                                    </div>
+
+                                    <div className="form-group">
+                                        <label htmlFor="exampleFormControlInput1">Course Title: </label>
+                                        <input type="text" className="form-control" id="exampleFormControlInput1"
+                                               placeholder="CSE 105"/>
+                                    </div>
+
+                                    <div className="form-group">
+                                        <label htmlFor="exampleFormControlInput1">Username: </label>
+                                        <input type="text" className="form-control" id="exampleFormControlInput1"
+                                               placeholder="GaryG@ucsd.edu"/>
+                                    </div>
+
+                                    <div className="form-group">
+                                        <label htmlFor="exampleFormControlInput1">Password: </label>
+                                        <input type="text" className="form-control" id="exampleFormControlInput1"
+                                               placeholder="Gary's-Password"/>
+                                    </div>
+
+
+
+                                </form>
+
+
+
+                            </div>
+                            <div className="modal-footer">
+                                <button type="button" className="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                <button type="button" className="btn btn-primary">Save Course</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        );
+    }
+}
+
+export default App;
+
