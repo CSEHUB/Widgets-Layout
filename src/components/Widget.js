@@ -1,5 +1,10 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
+import {
+    BrowserRouter as Router,
+    Route,
+    Link
+} from 'react-router-dom'
 
 class Widget extends Component {
     constructor(props) {
@@ -39,8 +44,6 @@ class Widget extends Component {
 
             </div>
         </div>
-
-
 
         );
     }

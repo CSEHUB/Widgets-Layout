@@ -2,13 +2,18 @@ import React, { Component } from 'react';
 import Widget from './components/Widget.js';
 import logo from './Logo.png'
 import './App.css'
+import {
+    BrowserRouter as Router,
+    Route,
+    Link
+} from 'react-router-dom'
 
 //examples of how to import our logo and css files etc..
 //import logo from './logo.svg';
 //import './App.css';
 
 class App extends Component {
-    
+
     addWidget(){
         console.log('HelloTest',this);
     }
@@ -50,12 +55,23 @@ class App extends Component {
                                 </nav>
 
 
+                                {/* Start Routing section */}
+                                <Router>
+                                    <div>
+
                                 {/* Button trigger modal */}
                                 <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
                                     Add New Course
                                 </button>
 
-                                <Widget/>
+
+                                        <Link to="/about">About</Link>
+                                        <Link to="/">Home</Link>
+
+
+                                        <Route exact={true} path="/about" component={Widget}/>
+                                    </div>
+                                </Router>
 
                             </div>
                         </div>
