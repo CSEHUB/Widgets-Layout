@@ -67,6 +67,10 @@ body{
   height: 80px;
 }
 
+.floatRight{
+    float:right;
+}
+
 
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }

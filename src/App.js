@@ -20,6 +20,7 @@ class App extends Component {
 
     render() {
         return (
+            <Router>
             <div>
                 <div className="container-fluid h-100">
                     <div className="row h-100">
@@ -27,11 +28,12 @@ class App extends Component {
                         {/* Side Menu */}
                         <div className="col-2 col-md-2 collapse m-0 p-0 h-100 bg-dark" id="collapsePushMenu">
                             <ul className="nav menu-side flex-column navbar-dark sticky-top">
+
                                 <li className="nav-item">
-                                    <a className="nav-link active" href="#">Course 1</a>
+                                    <Link to="/">Home</Link>
                                 </li>
                                 <li className="nav-item">
-                                    <a className="nav-link" href="#">Course 2</a>
+                                    <Link to="/about">About</Link>
                                 </li>
                                 <li className="nav-item">
                                     <a className="nav-link" href="#">Course 3</a>
@@ -39,6 +41,7 @@ class App extends Component {
                                 <li className="nav-item">
                                     <a className="nav-link disabled" href="#">Disabled</a>
                                 </li>
+
                             </ul>
                         </div>
 
@@ -55,26 +58,44 @@ class App extends Component {
                                 </nav>
 
 
-                                {/* Start Routing section */}
-                                <Router>
-                                    <div>
-
                                 {/* Button trigger modal */}
                                 <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
                                     Add New Course
                                 </button>
 
-
-                                        <Link to="/about">About</Link>
-                                        <Link to="/">Home</Link>
-
-
-                                        <Route exact={true} path="/about" component={Widget}/>
-                                    </div>
-                                </Router>
+                                <Route path="/about" render={(props) => <Widget courseName="CSE110" {...props} />} />
 
                             </div>
                         </div>
+
+
+                        <nav className="navbar navbar-expand-lg navbar-dark bg-light">
+                            <button className="navbar-toggler" type="button" data-toggle="collapse"
+                                    data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01"
+                                    aria-expanded="false" aria-label="Toggle navigation">
+                                <span className="navbar-toggler-icon"></span>
+                            </button>
+                            <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
+                                <a className="navbar-brand" href="#"><img id="Logo" src={logo}/></a>
+
+                                <div className="floatRight">
+                                <form className="form-inline my-2 my-lg-0">
+                                    <input className="form-control mr-sm-2" type="search" placeholder="Search"
+                                           aria-label="Search"/>
+                                        <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                                </form>
+
+                                </div>
+                                <div><i className="fas fa-cog"></i></div>
+                                <div>Google Photo/Account</div>
+                            </div>
+                        </nav>
+
+
+
+
+
+
                     </div>
                 </div>
 
@@ -123,8 +144,6 @@ class App extends Component {
                                                placeholder="Gary's-Password"/>
                                     </div>
 
-
-
                                 </form>
 
 
@@ -138,6 +157,7 @@ class App extends Component {
                     </div>
                 </div>
             </div>
+            </Router>
         );
     }
 }
